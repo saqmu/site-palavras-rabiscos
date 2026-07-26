@@ -1,54 +1,108 @@
+ :root {
+    --blue: #BDE0FE;    /* Azul Pastel */
+    --purple: #CDB4DB;  /* Roxo Pastel */
+    --pink: #FFC8DD;    /* Rosa Pastel */
+    --orange: #FFD59E;  /* Laranja Pastel */
+    --bg: #F8F9FA;
+    --text: #4A4E69;
+}
+
 body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+}
+
+/* Estrutura de Blocos (Bento Grid) */
+.bento-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.item {
+    border-radius: 35px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+/* Personalização dos Blocos */
+.header-block {
+    grid-column: span 3;
+    background: white;
+    text-align: center;
 }
 
 .logo {
-    max-width: 300px;
+    max-width: 250px;
+    margin: 20px 0;
+}
+
+.info-block {
+    grid-column: span 1;
+    background: var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-block {
+    grid-column: span 2;
+    background: var(--orange);
+}
+
+.message-block {
+    grid-column: span 2;
+    background: var(--pink);
+    display: flex;
+    align-items: center;
+}
+
+/* Galeria interna */
+.gallery-mini {
+    display: flex;
+    gap: 10px;
     margin-top: 20px;
 }
 
-.gallery {
-    display: flex;
-    gap: 20px;
-    margin-top: 50px;
-}
-
-.card {
-    background: white;
-    padding: 15px;
+.mini-art {
+    width: 100%;
+    height: 120px;
+    background: rgba(255,255,255,0.5);
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    text-align: center;
-    border: 2px solid #6c34af; /* Roxo do logo */
 }
 
-.art-placeholder {
-    width: 250px;
-    height: 250px;
-    background: linear-gradient(45deg, #007bff, #6c34af, #ff7e5f); /* Cores do seu logo */
-    border-radius: 15px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-}
-
-.like-btn {
-    background: #ff4757;
-    color: white;
+/* Botão de Curtir */
+.heart-btn {
+    background: white;
     border: none;
-    padding: 8px 15px;
+    padding: 15px 30px;
     border-radius: 50px;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 15px;
 }
 
-.like-btn:hover {
-    transform: scale(1.1);
+.heart-btn:active { transform: scale(0.9); }
+
+/* Ajuste para Celular */
+@media (max-width: 768px) {
+    .bento-container { grid-template-columns: 1fr; }
+    .header-block, .info-block, .feature-block, .message-block { grid-column: span 1; }
 }
