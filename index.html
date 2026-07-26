@@ -2,60 +2,81 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palavras & Rabiscos | Arte Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <title>Palavras & Rabiscos | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Ícones -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- O Blob interativo -->
+    <div class="cursor-blob" id="blob"></div>
 
-    <div class="background-blobs"></div>
+    <nav>
+        <a href="#quem-somos">Quem Somos</a>
+        <a href="#portfolio">Portfólio & Contato</a>
+        <a href="#equipe">Nossa Equipe</a>
+    </nav>
 
-    <div class="bento-container">
-        
-        <!-- HEADER / LOGO -->
-        <header class="item header-block">
-            <div class="nav-links">Sobre • Galeria • Contato</div>
-            <img src="logo.png" alt="Palavras e Rabiscos" class="logo">
-            <h1 class="gradient-text">Arte Digital com Alma</h1>
-        </header>
+    <div class="container">
+        <!-- PÁGINA 1: QUEM SOMOS -->
+        <div id="quem-somos" class="bento-grid">
+            <header class="item full-width">
+                <img src="logo.png" style="max-width:250px">
+                <h1>Sua arte digital de Mato Grosso do Sul para o mundo.</h1>
+            </header>
 
-        <!-- INTERAÇÃO (ROXO/AZUL) -->
-        <div class="item info-block">
-            <h3>Espalhe o Amor</h3>
-            <p>Se conecte com a nossa criatividade!</p>
-            <button id="likeBtn" class="heart-btn">
-                <span class="icon">❤️</span> <span id="likeCount">0</span>
-            </button>
-        </div>
+            <section class="item half-width bg-blue">
+                <h2>Missão</h2>
+                <p>Potencializar marcas, das pequenas às grandes, através de artes digitais autênticas e envolventes.</p>
+            </section>
 
-        <!-- MENSAGEM (ROSA) -->
-        <div class="item message-block">
-            <h2>Transformamos rabiscos em palavras e arte.</h2>
-            <p>Design exclusivo para marcas autênticas.</p>
-        </header>
+            <section class="item half-width bg-purple">
+                <h2>Visão</h2>
+                <p>Ser a maior referência regional em design fluído e criatividade digital até 2026.</p>
+            </section>
 
-        <!-- GALERIA (LARANJA) -->
-        <div class="item feature-block">
-            <h3>Galeria de Estilos</h3>
-            <div class="gallery-mini">
-                <div class="mini-art art-1"></div>
-                <div class="mini-art art-2"></div>
-                <div class="mini-art art-3"></div>
+            <div class="item full-width">
+                <h2>Nossos Valores</h2>
+                <p>💎 Honestidade • 🤝 Transparência • 🚀 Validação Iterativa • ✨ Atendimento Exclusivo</p>
             </div>
         </div>
 
-        <!-- CONTATO / REDES -->
-        <div class="item social-block">
-            <h3>Nossas Redes</h3>
-            <div class="social-icons">
-               <button class="social-btn">Instagram</button>
-               <button class="social-btn">WhatsApp</button>
+        <div style="height: 100px;"></div>
+
+        <!-- PÁGINA 2: CONTATO & PORTFÓLIO -->
+        <div id="portfolio" class="bento-grid">
+            <div class="item half-width bg-orange">
+                <h2>Portfólio</h2>
+                <p>Veja nossos rabiscos ganhando vida.</p>
+                <a href="SUO_LINK_DO_CANVA_AQUI" target="_blank" class="cta-btn">Ver Galeria Completa ➔</a>
+            </div>
+
+            <div class="item half-width bg-pink">
+                <h2>Contato Direto</h2>
+                <p>Fale conosco no WhatsApp para orçamentos.</p>
+                <a href="https://wa.me/556792466287" class="cta-btn">WhatsApp: (67) 9246-6287</a>
             </div>
         </div>
 
+        <div style="height: 100px;"></div>
+
+        <!-- PÁGINA 3: DIFERENCIAL & EQUIPE -->
+        <div id="equipe" class="bento-grid">
+            <div class="item full-width">
+                <h2>A Mente por trás dos Rabiscos</h2>
+                <div class="team-grid">
+                    <div class="person">
+                        <div class="person-img"></div>
+                        <h4>Samuel Costa Ortiz</h4>
+                        <p>Diretor Chefe & Analista de Dados</p>
+                    </div>
+                    <div class="person">
+                        <div class="person-img"></div>
+                        <h4>Elizangela Costa</h4>
+                        <p>CEO & Estratégia de Marca</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
