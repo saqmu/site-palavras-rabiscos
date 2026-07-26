@@ -4,22 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palavras & Rabiscos | Arte Digital</title>
+    <!-- Fonte moderna do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="assets/logo.png" alt="Logo Palavras e Rabiscos" class="logo">
-    </header>
 
-    <main class="gallery">
-        <!-- Exemplo de uma arte para curtir -->
-        <div class="card">
-            <div class="art-placeholder">Arte Digital 01</div>
-            <div class="interactions">
-                <button class="like-btn" onclick="curtir(this)">❤️ <span class="count">0</span></button>
+    <div class="bento-container">
+        
+        <!-- Bloco 1: Cabeçalho/Logo -->
+        <header class="item header-block">
+            <nav>Menu • Home • Galeria • Contato</nav>
+            <img src="logo.png" alt="Palavras e Rabiscos" class="logo">
+            <h1>Arte Digital com Propósito</h1>
+        </header>
+
+        <!-- Bloco 2: Sobre / Interação -->
+        <div class="item info-block">
+            <h3>Gostou do nosso estilo?</h3>
+            <p>Clique no coração para espalhar criatividade!</p>
+            <button id="likeBtn" class="heart-btn">❤️ <span id="likeCount">0</span></button>
+        </div>
+
+        <!-- Bloco 3: Galeria Destaque (Laranja) -->
+        <div class="item feature-block">
+            <h3>Explore cores & formas</h3>
+            <div class="gallery-mini">
+                <div class="mini-art"></div>
+                <div class="mini-art"></div>
             </div>
         </div>
-    </main>
+
+        <!-- Bloco 4: Texto Grande (Rosa) -->
+        <div class="item message-block">
+            <h2>Transformamos rabiscos em palavras, e palavras em arte digital.</h2>
+        </div>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
