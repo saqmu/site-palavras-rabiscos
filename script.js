@@ -1,9 +1,16 @@
-function curtir(btn) {
-    let countSpan = btn.querySelector('.count');
-    let atual = parseInt(countSpan.innerText);
-    countSpan.innerText = atual + 1;
+// Função simples de curtidas
+const likeBtn = document.getElementById('likeBtn');
+const likeCount = document.getElementById('likeCount');
+
+let count = 0;
+
+likeBtn.addEventListener('click', () => {
+    count++;
+    likeCount.innerText = count;
     
-    // Pequena animação
-    btn.style.backgroundColor = "#ff6b81";
-    setTimeout(() => { btn.style.backgroundColor = "#ff4757"; }, 200);
-}
+    // Pequeno efeito visual de "pulsar"
+    likeBtn.style.transform = "scale(1.2)";
+    setTimeout(() => {
+        likeBtn.style.transform = "scale(1)";
+    }, 100);
+});
