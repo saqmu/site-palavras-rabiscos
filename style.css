@@ -1,108 +1,91 @@
- :root {
-    --blue: #BDE0FE;    /* Azul Pastel */
-    --purple: #CDB4DB;  /* Roxo Pastel */
-    --pink: #FFC8DD;    /* Rosa Pastel */
-    --orange: #FFD59E;  /* Laranja Pastel */
-    --bg: #F8F9FA;
-    --text: #4A4E69;
+:root {
+    --blue: #A2D2FF;
+    --purple: #BDB2FF;
+    --pink: #FFC6FF;
+    --orange: #FFD6A5;
+    --bg: #F0F4F8;
 }
 
 body {
     background-color: var(--bg);
-    font-family: 'Poppins', sans-serif;
-    color: var(--text);
+    font-family: 'Outfit', sans-serif;
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Estrutura de Blocos (Bento Grid) */
+/* Manchas coloridas no fundo para dar profundidade */
+.background-blobs {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 10% 10%, var(--blue), transparent 30%),
+        radial-gradient(circle at 90% 90%, var(--orange), transparent 30%);
+    opacity: 0.5;
+}
+
 .bento-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    gap: 20px;
-    max-width: 1100px;
+    grid-template-rows: auto auto;
+    gap: 15px;
+    max-width: 1000px;
     width: 100%;
 }
 
 .item {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
     border-radius: 35px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    transition: transform 0.3s ease;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.item:hover {
-    transform: translateY(-5px);
-}
+.item:hover { transform: scale(1.02); }
 
-/* Personalização dos Blocos */
-.header-block {
-    grid-column: span 3;
-    background: white;
-    text-align: center;
-}
+/* Detalhes por bloco */
+.header-block { grid-column: span 3; text-align: center; background: white; }
+.logo { max-width: 220px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
 
-.logo {
-    max-width: 250px;
-    margin: 20px 0;
-}
+.info-block { grid-column: span 1; background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; text-align: center; }
+.message-block { grid-column: span 2; background: var(--pink); color: #555; }
+.feature-block { grid-column: span 2; background: var(--orange); }
+.social-block { grid-column: span 4; text-align: center; background: #fff; }
 
-.info-block {
-    grid-column: span 1;
-    background: var(--blue);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+/* Botões e Interação */
+.heart-btn {
+    background: white; border: none; padding: 12px 25px;
+    border-radius: 50px; cursor: pointer; font-weight: bold;
+    font-size: 1.2rem; transition: 0.3s;
 }
-
-.feature-block {
-    grid-column: span 2;
-    background: var(--orange);
-}
-
-.message-block {
-    grid-column: span 2;
-    background: var(--pink);
-    display: flex;
-    align-items: center;
-}
-
-/* Galeria interna */
-.gallery-mini {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
+.heart-btn:hover { background: #ff4757; color: white; }
 
 .mini-art {
-    width: 100%;
-    height: 120px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 20px;
+    width: 30%; height: 80px; border-radius: 15px; background: rgba(255,255,255,0.3);
 }
 
-/* Botão de Curtir */
-.heart-btn {
-    background: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-top: 15px;
+.gallery-mini { display: flex; gap: 10px; margin-top: 15px; justify-content: center;}
+
+.social-btn {
+    background: var(--purple); color: white; border: none;
+    padding: 10px 20px; border-radius: 50px; margin: 5px; cursor: pointer;
 }
 
-.heart-btn:active { transform: scale(0.9); }
+.gradient-text {
+    background: linear-gradient(90deg, #007bff, #6c34af, #ff7e5f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
 
-/* Ajuste para Celular */
 @media (max-width: 768px) {
     .bento-container { grid-template-columns: 1fr; }
-    .header-block, .info-block, .feature-block, .message-block { grid-column: span 1; }
+    .header-block, .info-block, .message-block, .feature-block, .social-block { grid-column: span 1; }
 }
