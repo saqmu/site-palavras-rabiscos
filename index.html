@@ -2,81 +2,72 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Palavras & Rabiscos | Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras & Rabiscos | Arte Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- O Blob interativo -->
-    <div class="cursor-blob" id="blob"></div>
+
+    <!-- Bolha Interativa no fundo -->
+    <div class="blob-cursor" id="blob"></div>
 
     <nav>
-        <a href="#quem-somos">Quem Somos</a>
-        <a href="#portfolio">Portfólio & Contato</a>
-        <a href="#equipe">Nossa Equipe</a>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Quem Somos</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#equipe">Equipe</a>
     </nav>
 
-    <div class="container">
-        <!-- PÁGINA 1: QUEM SOMOS -->
-        <div id="quem-somos" class="bento-grid">
-            <header class="item full-width">
-                <img src="logo.png" style="max-width:250px">
-                <h1>Sua arte digital de Mato Grosso do Sul para o mundo.</h1>
-            </header>
+    <div class="container" id="inicio">
+        
+        <!-- Bloco 1: Header Principal -->
+        <header class="bento-item header">
+            <img src="logo.png" alt="Logo" class="main-logo">
+            <h1 class="gradient-text">Criatividade de MS para o Mundo</h1>
+        </header>
 
-            <section class="item half-width bg-blue">
-                <h2>Missão</h2>
-                <p>Potencializar marcas, das pequenas às grandes, através de artes digitais autênticas e envolventes.</p>
-            </section>
-
-            <section class="item half-width bg-purple">
-                <h2>Visão</h2>
-                <p>Ser a maior referência regional em design fluído e criatividade digital até 2026.</p>
-            </section>
-
-            <div class="item full-width">
-                <h2>Nossos Valores</h2>
-                <p>💎 Honestidade • 🤝 Transparência • 🚀 Validação Iterativa • ✨ Atendimento Exclusivo</p>
+        <!-- Bloco 2: Sobre / Visão / Missão -->
+        <section class="bento-item info-card" id="sobre">
+            <h3>Quem Somos</h3>
+            <p>Especialistas em transformar ideias em artes digitais de impacto.</p>
+            <div class="vmv">
+                <span><strong>Missão:</strong> Potencializar empresas com design único.</span>
+                <span><strong>Visão:</strong> Referência em arte digital no MS até 2026.</span>
+                <span><strong>Valores:</strong> Honestidade e Validação Iterativa.</span>
             </div>
-        </div>
+        </section>
 
-        <div style="height: 100px;"></div>
+        <!-- Bloco 3: PORTFÓLIO (INTERATIVO) -->
+        <section class="bento-item portfolio-card" id="portfolio">
+            <h2>Nosso Portfólio</h2>
+            <p>Confira nossos trabalhos recentes no Canva!</p>
+            <a href="https://palavraserabiscos.my.canva.site/artedigital" target="_blank" class="canva-btn">Acessar Portfólio 🎨</a>
+        </section>
 
-        <!-- PÁGINA 2: CONTATO & PORTFÓLIO -->
-        <div id="portfolio" class="bento-grid">
-            <div class="item half-width bg-orange">
-                <h2>Portfólio</h2>
-                <p>Veja nossos rabiscos ganhando vida.</p>
-                <a href="SUO_LINK_DO_CANVA_AQUI" target="_blank" class="cta-btn">Ver Galeria Completa ➔</a>
-            </div>
-
-            <div class="item half-width bg-pink">
-                <h2>Contato Direto</h2>
-                <p>Fale conosco no WhatsApp para orçamentos.</p>
-                <a href="https://wa.me/556792466287" class="cta-btn">WhatsApp: (67) 9246-6287</a>
-            </div>
-        </div>
-
-        <div style="height: 100px;"></div>
-
-        <!-- PÁGINA 3: DIFERENCIAL & EQUIPE -->
-        <div id="equipe" class="bento-grid">
-            <div class="item full-width">
-                <h2>A Mente por trás dos Rabiscos</h2>
-                <div class="team-grid">
-                    <div class="person">
-                        <div class="person-img"></div>
-                        <h4>Samuel Costa Ortiz</h4>
-                        <p>Diretor Chefe & Analista de Dados</p>
-                    </div>
-                    <div class="person">
-                        <div class="person-img"></div>
-                        <h4>Elizangela Costa</h4>
-                        <p>CEO & Estratégia de Marca</p>
-                    </div>
+        <!-- Bloco 4: EQUIPE (COM AS FOTOS) -->
+        <section class="bento-item team-card" id="equipe">
+            <h2>Nossa Equipe</h2>
+            <div class="team-grid">
+                <div class="member">
+                    <img src="samuel.png" alt="Samuel" class="member-photo">
+                    <h4>Samuel Ortiz</h4>
+                    <span>Diretor & Analista</span>
+                </div>
+                <div class="member">
+                    <img src="elizangela.png" alt="Elizangela" class="member-photo">
+                    <h4>Elizangela Costa</h4>
+                    <span>CEO da Empresa</span>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Bloco 5: Contato Rápido -->
+        <section class="bento-item contact-card">
+            <h3>Fale Conosco</h3>
+            <a href="https://wa.me/556792466287" class="whatsapp-btn">WhatsApp (67) 9246-6287</a>
+        </section>
+
     </div>
 
     <script src="script.js"></script>
