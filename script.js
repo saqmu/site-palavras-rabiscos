@@ -1,16 +1,16 @@
-// Função simples de curtidas
-const likeBtn = document.getElementById('likeBtn');
-const likeCount = document.getElementById('likeCount');
+const btn = document.getElementById('likeBtn');
+const countLabel = document.getElementById('likeCount');
+let likes = 0;
 
-let count = 0;
-
-likeBtn.addEventListener('click', () => {
-    count++;
-    likeCount.innerText = count;
+btn.addEventListener('click', () => {
+    likes++;
+    countLabel.innerText = likes;
     
-    // Pequeno efeito visual de "pulsar"
-    likeBtn.style.transform = "scale(1.2)";
-    setTimeout(() => {
-        likeBtn.style.transform = "scale(1)";
-    }, 100);
+    // Criar um efeito de mini-coração subindo (opcional, mas legal!)
+    const spark = document.createElement('span');
+    spark.innerText = '🌸';
+    spark.style.position = 'absolute';
+    btn.appendChild(spark);
+    
+    setTimeout(() => spark.remove(), 1000);
 });
