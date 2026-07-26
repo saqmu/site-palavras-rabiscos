@@ -1,16 +1,21 @@
-const btn = document.getElementById('likeBtn');
-const countLabel = document.getElementById('likeCount');
-let likes = 0;
+const blob = document.getElementById('blob');
 
-btn.addEventListener('click', () => {
-    likes++;
-    countLabel.innerText = likes;
+document.body.onpointermove = event => {
+    const { clientX, clientY } = event;
     
-    // Criar um efeito de mini-coração subindo (opcional, mas legal!)
-    const spark = document.createElement('span');
-    spark.innerText = '🌸';
-    spark.style.position = 'absolute';
-    btn.appendChild(spark);
-    
-    setTimeout(() => spark.remove(), 1000);
+    // Suavizando o movimento da bolha de luz
+    blob.animate({
+        left: `${clientX - 150}px`,
+        top: `${clientY - 150}px`
+    }, { duration: 1500, fill: "forwards" });
+}
+
+// Logica simples de rolagem suave (scroll)
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
