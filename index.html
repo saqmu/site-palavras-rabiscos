@@ -2,73 +2,63 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palavras & Rabiscos | Arte Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Bolha Interativa no fundo -->
-    <div class="blob-cursor" id="blob"></div>
+    <div class="background-blobs" id="bgBlobs"></div>
 
     <nav>
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Quem Somos</a>
+        <a href="#home">Início</a>
+        <a href="#quem-somos">Sobre</a>
         <a href="#portfolio">Portfólio</a>
-        <a href="#equipe">Equipe</a>
+        <a href="#contato">Contato</a>
     </nav>
 
-    <div class="container" id="inicio">
+    <!-- INÍCIO COM A BOLHA DE SABÃO -->
+    <header id="home">
+        <div class="soap-bubble-container">
+            <div class="soap-bubble" id="soapBubble"></div>
+            <img src="logo.png" style="position: absolute; max-width: 180px; pointer-events: none;">
+        </div>
+        <h1>Bem-vindo à Arte Fluida</h1>
+    </header>
+
+    <main class="container">
         
-        <!-- Bloco 1: Header Principal -->
-        <header class="bento-item header">
-            <img src="logo.png" alt="Logo" class="main-logo">
-            <h1 class="gradient-text">Criatividade de MS para o Mundo</h1>
-        </header>
+        <div class="bento-card" style="grid-column: span 3;" id="quem-somos">
+            <h2>Quem Somos</h2>
+            <p>Transformamos arte em estratégia. Do Brasil (MS) para o mundo.</p>
+            <p><strong>Missão:</strong> Ajudar empresas com artes de alto impacto.</p>
+        </div>
 
-        <!-- Bloco 2: Sobre / Visão / Missão -->
-        <section class="bento-item info-card" id="sobre">
-            <h3>Quem Somos</h3>
-            <p>Especialistas em transformar ideias em artes digitais de impacto.</p>
-            <div class="vmv">
-                <span><strong>Missão:</strong> Potencializar empresas com design único.</span>
-                <span><strong>Visão:</strong> Referência em arte digital no MS até 2026.</span>
-                <span><strong>Valores:</strong> Honestidade e Validação Iterativa.</span>
-            </div>
-        </section>
-
-        <!-- Bloco 3: PORTFÓLIO (INTERATIVO) -->
-        <section class="bento-item portfolio-card" id="portfolio">
+        <!-- PORTFÓLIO CANVA -->
+        <div class="bento-card" style="grid-column: span 4; text-align: center;" id="portfolio">
             <h2>Nosso Portfólio</h2>
-            <p>Confira nossos trabalhos recentes no Canva!</p>
-            <a href="https://palavraserabiscos.my.canva.site/artedigital" target="_blank" class="canva-btn">Acessar Portfólio 🎨</a>
-        </section>
+            <p>Clique abaixo para ver nossa arte no Canva.</p>
+            <a href="https://palavraserabiscos.my.canva.site/artedigital" target="_blank" class="portfolio-btn">Ver Arte Digital 🎨</a>
+        </div>
 
-        <!-- Bloco 4: EQUIPE (COM AS FOTOS) -->
-        <section class="bento-item team-card" id="equipe">
-            <h2>Nossa Equipe</h2>
+        <!-- EQUIPE -->
+        <div class="bento-card" style="grid-column: span 4;">
+            <h2 style="text-align: center;">Nossa Equipe</h2>
             <div class="team-grid">
                 <div class="member">
-                    <img src="samuel.png" alt="Samuel" class="member-photo">
-                    <h4>Samuel Ortiz</h4>
-                    <span>Diretor & Analista</span>
+                    <img src="samuel.png" alt="Samuel Ortiz">
+                    <h4>Samuel Costa Ortiz</h4>
+                    <small>Chefe & Analista de Dados</small>
                 </div>
                 <div class="member">
-                    <img src="elizangela.png" alt="Elizangela" class="member-photo">
-                    <h4>Elizangela Costa</h4>
-                    <span>CEO da Empresa</span>
+                    <img src="elizangela.png" alt="Elizangela Souza">
+                    <h4>Elizangela de Souza</h4>
+                    <small>CEO da Empresa</small>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Bloco 5: Contato Rápido -->
-        <section class="bento-item contact-card">
-            <h3>Fale Conosco</h3>
-            <a href="https://wa.me/556792466287" class="whatsapp-btn">WhatsApp (67) 9246-6287</a>
-        </section>
-
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
