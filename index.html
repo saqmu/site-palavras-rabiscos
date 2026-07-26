@@ -4,40 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palavras & Rabiscos | Arte Digital</title>
-    <!-- Fonte moderna do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Ícones -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
+    <div class="background-blobs"></div>
+
     <div class="bento-container">
         
-        <!-- Bloco 1: Cabeçalho/Logo -->
+        <!-- HEADER / LOGO -->
         <header class="item header-block">
-            <nav>Menu • Home • Galeria • Contato</nav>
+            <div class="nav-links">Sobre • Galeria • Contato</div>
             <img src="logo.png" alt="Palavras e Rabiscos" class="logo">
-            <h1>Arte Digital com Propósito</h1>
+            <h1 class="gradient-text">Arte Digital com Alma</h1>
         </header>
 
-        <!-- Bloco 2: Sobre / Interação -->
+        <!-- INTERAÇÃO (ROXO/AZUL) -->
         <div class="item info-block">
-            <h3>Gostou do nosso estilo?</h3>
-            <p>Clique no coração para espalhar criatividade!</p>
-            <button id="likeBtn" class="heart-btn">❤️ <span id="likeCount">0</span></button>
+            <h3>Espalhe o Amor</h3>
+            <p>Se conecte com a nossa criatividade!</p>
+            <button id="likeBtn" class="heart-btn">
+                <span class="icon">❤️</span> <span id="likeCount">0</span>
+            </button>
         </div>
 
-        <!-- Bloco 3: Galeria Destaque (Laranja) -->
+        <!-- MENSAGEM (ROSA) -->
+        <div class="item message-block">
+            <h2>Transformamos rabiscos em palavras e arte.</h2>
+            <p>Design exclusivo para marcas autênticas.</p>
+        </header>
+
+        <!-- GALERIA (LARANJA) -->
         <div class="item feature-block">
-            <h3>Explore cores & formas</h3>
+            <h3>Galeria de Estilos</h3>
             <div class="gallery-mini">
-                <div class="mini-art"></div>
-                <div class="mini-art"></div>
+                <div class="mini-art art-1"></div>
+                <div class="mini-art art-2"></div>
+                <div class="mini-art art-3"></div>
             </div>
         </div>
 
-        <!-- Bloco 4: Texto Grande (Rosa) -->
-        <div class="item message-block">
-            <h2>Transformamos rabiscos em palavras, e palavras em arte digital.</h2>
+        <!-- CONTATO / REDES -->
+        <div class="item social-block">
+            <h3>Nossas Redes</h3>
+            <div class="social-icons">
+               <button class="social-btn">Instagram</button>
+               <button class="social-btn">WhatsApp</button>
+            </div>
         </div>
 
     </div>
