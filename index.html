@@ -2,8 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Palavras & Rabiscos | Arte Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras & Rabiscos | MS Digital Art</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,54 +11,70 @@
     <div class="background-blobs" id="bgBlobs"></div>
 
     <nav>
-        <a href="#home">Início</a>
-        <a href="#quem-somos">Sobre</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#contato">Contato</a>
+        <a href="#inicio">Início</a>
+        <a href="#quem-somos">Quem Somos</a>
+        <a href="#contato">Portfolio</a>
+        <a href="#equipe">Equipe</a>
     </nav>
 
-    <!-- INÍCIO COM A BOLHA DE SABÃO -->
-    <header id="home">
+    <header id="inicio" class="hero">
         <div class="soap-bubble-container">
-            <div class="soap-bubble" id="soapBubble"></div>
-            <img src="logo.png" style="position: absolute; max-width: 180px; pointer-events: none;">
+            <div class="soap-bubble" id="bubble"></div>
+            <img src="logo.png" class="logo-centro">
         </div>
-        <h1>Bem-vindo à Arte Fluida</h1>
+        <h2 style="margin-top: 40px; color: #555;">Sua referência em arte digital em Mato Grosso do Sul.</h2>
     </header>
 
-    <main class="container">
+    <div class="container">
         
-        <div class="bento-card" style="grid-column: span 3;" id="quem-somos">
-            <h2>Quem Somos</h2>
-            <p>Transformamos arte em estratégia. Do Brasil (MS) para o mundo.</p>
-            <p><strong>Missão:</strong> Ajudar empresas com artes de alto impacto.</p>
-        </div>
+        <!-- PAGINA 1 -->
+        <section class="grid" id="quem-somos">
+            <div class="card span-2 blue">
+                <h2>Quem Somos</h2>
+                <p>Somos uma empresa do Brasil, MS, dedicada exclusivamente ao cuidado da sua parte de arte digital.</p>
+                <p><strong>Missão:</strong> Ajudar pequenas e grandes empresas com arte digital de alto impacto.</p>
+            </div>
+            <div class="card span-2 purple">
+                <h2>Visão & Valores</h2>
+                <p><strong>Visão:</strong> Queremos ser a empresa referência no estado através da inovação visual.</p>
+                <p><strong>Valores:</strong> Honestidade • Validação Iterativa • Atendimento Personalizado • Transparência.</p>
+            </div>
+        </section>
 
-        <!-- PORTFÓLIO CANVA -->
-        <div class="bento-card" style="grid-column: span 4; text-align: center;" id="portfolio">
-            <h2>Nosso Portfólio</h2>
-            <p>Clique abaixo para ver nossa arte no Canva.</p>
-            <a href="https://palavraserabiscos.my.canva.site/artedigital" target="_blank" class="portfolio-btn">Ver Arte Digital 🎨</a>
-        </div>
+        <!-- PAGINA 2 -->
+        <section class="grid" id="contato" style="margin-top: 40px;">
+            <div class="card span-4 orange" style="text-align: center;">
+                <h2>Veja Nossa Arte Digital</h2>
+                <p>Nosso diferencial está na paixão por transformar rabiscos em palavras.</p>
+                <a href="https://palavraserabiscos.my.canva.site/artedigital" target="_blank" class="btn">Explorar Portfolio no Canva ➔</a>
+            </div>
+        </section>
 
-        <!-- EQUIPE -->
-        <div class="bento-card" style="grid-column: span 4;">
-            <h2 style="text-align: center;">Nossa Equipe</h2>
-            <div class="team-grid">
-                <div class="member">
-                    <img src="samuel.png" alt="Samuel Ortiz">
-                    <h4>Samuel Costa Ortiz</h4>
-                    <small>Chefe & Analista de Dados</small>
-                </div>
-                <div class="member">
-                    <img src="elizangela.png" alt="Elizangela Souza">
-                    <h4>Elizangela de Souza</h4>
-                    <small>CEO da Empresa</small>
+        <!-- PAGINA 3 -->
+        <section class="grid" id="equipe" style="margin-top: 40px;">
+            <div class="card span-4 pink">
+                <h2 style="text-align: center;">Equipe Responsável</h2>
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                    <div class="team-member">
+                        <img src="samuel.png">
+                        <h4>Samuel Costa Ortiz</h4>
+                        <p>Diretor Chefe e Analista de Dados</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="elizangela.png">
+                        <h4>Elizangela Costa de Souza</h4>
+                        <p>CEO da Empresa</p>
+                    </div>
                 </div>
             </div>
-        </div>
+            
+            <div class="card span-4" style="background: #222; color: white; text-align: center;">
+                <h3>Entre em Contato Agora</h3>
+                <a href="https://wa.me/556792466287" class="btn">WhatsApp: 67 9246-6287</a>
+            </div>
+        </section>
 
-    </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
