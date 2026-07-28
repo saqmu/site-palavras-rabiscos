@@ -1,39 +1,44 @@
-// 1. Criando as bolhas de fundo
-const bgBlobsContainer = document.getElementById('bgBlobs');
-const colors = ['#A2D2FF', '#CDB4DB', '#FFC6FF', '#FFD59E'];
+document.addEventListener("DOMContentLoaded", function() {
+    const bubble = document.getElementById("bubble");
+    const blobsContainer = document.getElementById("bgBlobs");
+    const colors = ['#A2D2FF', '#CDB4DB', '#FFC6FF', '#FFD59E'];
 
-for(let i=0; i < 6; i++) {
-    const bubble = document.createElement('div');
-    bubble.className = 'bg-bubble';
-    bubble.style.width = Math.random() * 300 + 100 + 'px';
-    bubble.style.height = bubble.style.width;
-    bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
-    bubble.style.left = Math.random() * 100 + '%';
-    bubble.style.top = Math.random() * 100 + '%';
-    bgBlobsContainer.appendChild(bubble);
-}
+    // Criar as diversas bolhas coloridas no fundo
+    for (let i = 0; i < 15; i++) {
+        let b = document.createElement("div");
+        b.className = "blob";
+        let size = Math.random() * 300 + 100;
+        b.style.width = size + "px";
+        b.style.height = size + "px";
+        b.style.background = colors[Math.floor(Math.random() * colors.length)];
+        b.style.left = Math.random() * 100 + "vw";
+        b.style.top = Math.random() * 100 + "vh";
+        blobsContainer.appendChild(b);
+    }
 
-// 2. Ondulação na Bolha Principal ao passar o mouse
-const soap = document.getElementById('soapBubble');
+    // INTERATIVIDADE DAS BOLHAS DO FUNDO
+    document.addEventListener("mousemove", (e) => {
+        const { clientX, clientY } = e;
+        
+        document.querySelectorAll(".blob").forEach((b, index) => {
+            const ratio = (index + 1) * 0.02;
+            const moveX = (clientX - window.innerWidth / 2) * ratio;
+            const moveY = (clientY - window.innerHeight / 2) * ratio;
+            b.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
 
-soap.onmousemove = (e) => {
-    const rect = soap.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width/2;
-    const y = e.clientY - rect.top - rect.height/2;
-    
-    // Efeito de ondulação física suave
-    soap.style.transform = `translate(${x*0.1}px, ${y*0.1}px) scale(1.1) rotateX(${y*0.2}deg) rotateY(${x*0.2}deg)`;
-};
-
-soap.onmouseleave = () => {
-    soap.style.transform = `translate(0,0) scale(1) rotateX(0) rotateY(0)`;
-};
-
-// 3. Bolhas de fundo fogem do cursor
-window.onmousemove = (e) => {
-    document.querySelectorAll('.bg-bubble').forEach(b => {
-        const x = (window.innerWidth / 2 - e.pageX) / 30;
-        const y = (window.innerHeight / 2 - e.pageY) / 30;
-        b.style.transform = `translate(${x}px, ${y}px)`;
+        // INTERATIVIDADE DA BOLHA DE SABÃO (Ondulação)
+        if (bubble) {
+            const rect = bubble.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const dx = (clientX - centerX) / 20;
+            const dy = (clientY - centerY) / 20;
+            bubble.style.transform = `translate(${dx}px, ${dy}px) rotateX(${dy}deg) rotateY(${dx}deg) scale(1.05)`;
+        }
     });
-};
+
+    document.addEventListener("mouseleave", () => {
+        bubble.style.transform = "translate(0,0) scale(1)";
+    });
+});
