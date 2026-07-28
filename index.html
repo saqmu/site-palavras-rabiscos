@@ -2,80 +2,52 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palavras & Rabiscos | MS Digital Art</title>
+    <title>Palavras & Rabiscos | Experience</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="background-blobs" id="bgBlobs"></div>
+    <div id="custom-cursor"></div>
 
     <nav>
-        <a href="#inicio">Início</a>
-        <a href="#quem-somos">Quem Somos</a>
-        <a href="#contato">Portfolio</a>
-        <a href="#equipe">Equipe</a>
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#portfolio">Portfólio</a>
+        <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
     </nav>
 
-    <header id="inicio" class="hero">
-        <div class="soap-bubble-container">
-            <div class="soap-bubble" id="bubble"></div>
-            <img src="logo.png" class="logo-centro">
+    <section id="home" class="bubble-wrap">
+        <div class="soap-bubble" id="mainBubble">
+            <img src="logo.png" alt="Logo">
         </div>
-        <h2 style="margin-top: 40px; color: #555;">Sua referência em arte digital em Mato Grosso do Sul.</h2>
-    </header>
+    </section>
 
-    <div class="container">
-        
-        <!-- PAGINA 1 -->
-        <section class="grid" id="quem-somos">
-            <div class="card span-2 blue">
-                <h2>Quem Somos</h2>
-                <p>Somos uma empresa do Brasil, MS, dedicada exclusivamente ao cuidado da sua parte de arte digital.</p>
-                <p><strong>Missão:</strong> Ajudar pequenas e grandes empresas com arte digital de alto impacto.</p>
-            </div>
-            <div class="card span-2 purple">
-                <h2>Visão & Valores</h2>
-                <p><strong>Visão:</strong> Queremos ser a empresa referência no estado através da inovação visual.</p>
-                <p><strong>Valores:</strong> Honestidade • Validação Iterativa • Atendimento Personalizado • Transparência.</p>
-            </div>
-        </section>
+    <main class="grid">
+        <div class="card span-2 reveal">
+            <h2>Nossa Missão</h2>
+            <p>Impactar através da arte digital e análise de dados estratégica.</p>
+        </div>
 
-        <!-- PAGINA 2 -->
-        <section class="grid" id="contato" style="margin-top: 40px;">
-            <div class="card span-4 orange" style="text-align: center;">
-                <h2>Veja Nossa Arte Digital</h2>
-                <p>Nosso diferencial está na paixão por transformar rabiscos em palavras.</p>
-                <a href="https://palavraserabiscos.my.canva.site/artedigital" target="_blank" class="btn">Explorar Portfolio no Canva ➔</a>
-            </div>
-        </section>
+        <div class="card span-2 reveal">
+            <h2>Quem Somos</h2>
+            <p>Diretamente de MS, cuidamos da essência da sua marca.</p>
+        </div>
 
-        <!-- PAGINA 3 -->
-        <section class="grid" id="equipe" style="margin-top: 40px;">
-            <div class="card span-4 pink">
-                <h2 style="text-align: center;">Equipe Responsável</h2>
-                <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-                    <div class="team-member">
-                        <img src="samuel.png">
-                        <h4>Samuel Costa Ortiz</h4>
-                        <p>Diretor Chefe e Analista de Dados</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="elizangela.png">
-                        <h4>Elizangela Costa de Souza</h4>
-                        <p>CEO da Empresa</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card span-4" style="background: #222; color: white; text-align: center;">
-                <h3>Entre em Contato Agora</h3>
-                <a href="https://wa.me/556792466287" class="btn">WhatsApp: 67 9246-6287</a>
-            </div>
-        </section>
+        <div id="portfolio" class="card span-4 reveal" style="text-align: center;">
+            <h2>Diferencial Interativo</h2>
+            <p>Clique abaixo e veja o poder da nossa arte.</p>
+            <button class="particle-btn" onclick="celebrate()">Ver Portfólio 🚀</button>
+        </div>
 
-    </div>
+        <div class="card span-4 team reveal">
+            <div style="display: flex; justify-content: space-around; text-align: center;">
+                <div><img src="samuel.png"><h3>Samuel Ortiz</h3><p>Head de Dados</p></div>
+                <div><img src="elizangela.png"><h3>Elizangela Souza</h3><p>CEO</p></div>
+            </div>
+        </div>
+    </main>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </body>
 </html>
