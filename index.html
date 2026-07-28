@@ -2,52 +2,62 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Palavras & Rabiscos | Experience</title>
+    <title>Palavras & Rabiscos | MS Digital Art</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="custom-cursor"></div>
+    <!-- Fundo de Líquidos que se mexem -->
+    <div class="liquid-bg">
+        <div class="blob" style="background: var(--azul); top: -10%; left: -10%;"></div>
+        <div class="blob" style="background: var(--rosa); bottom: -10%; right: -10%; animation-delay: -5s;"></div>
+        <div class="blob" style="background: var(--laranja); top: 50%; left: 50%; animation-delay: -10s;"></div>
+    </div>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#portfolio">Portfólio</a>
-        <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+        <a href="#inicio" style="text-decoration:none; color:#111; font-weight:bold;">Início</a>
+        <a href="#empresa" style="text-decoration:none; color:#111; font-weight:bold;">Empresa</a>
+        <a href="#portfolio" style="text-decoration:none; color:#111; font-weight:bold;">Portfólio</a>
+        <button onclick="document.body.classList.toggle('dark')" style="border:none; background:none; cursor:pointer; font-size:1.2rem;">🌓</button>
     </nav>
 
-    <section id="home" class="bubble-wrap">
-        <div class="soap-bubble" id="mainBubble">
-            <img src="logo.png" alt="Logo">
-        </div>
-    </section>
-
-    <main class="grid">
-        <div class="card span-2 reveal">
-            <h2>Nossa Missão</h2>
-            <p>Impactar através da arte digital e análise de dados estratégica.</p>
-        </div>
-
-        <div class="card span-2 reveal">
-            <h2>Quem Somos</h2>
-            <p>Diretamente de MS, cuidamos da essência da sua marca.</p>
-        </div>
-
-        <div id="portfolio" class="card span-4 reveal" style="text-align: center;">
-            <h2>Diferencial Interativo</h2>
-            <p>Clique abaixo e veja o poder da nossa arte.</p>
-            <button class="particle-btn" onclick="celebrate()">Ver Portfólio 🚀</button>
-        </div>
-
-        <div class="card span-4 team reveal">
-            <div style="display: flex; justify-content: space-around; text-align: center;">
-                <div><img src="samuel.png"><h3>Samuel Ortiz</h3><p>Head de Dados</p></div>
-                <div><img src="elizangela.png"><h3>Elizangela Souza</h3><p>CEO</p></div>
+    <header class="hero" id="inicio">
+        <div class="soap-wrapper">
+            <div class="main-bubble" id="targetBubble">
+                <img src="logo.png" alt="Logo">
             </div>
         </div>
-    </main>
+    </header>
 
-    <script src="script.js"></script>
+    <div class="container">
+        <div class="bento">
+            <div class="card full blue" id="empresa">
+                <h2>Palavras & Rabiscos</h2>
+                <p>Diretamente de MS, cuidamos da essência visual da sua empresa.</p>
+                <div style="display:flex; gap:30px; margin-top:20px;">
+                    <p><strong>Missão:</strong> Potencializar empresas com arte digital.</p>
+                    <p><strong>Visão:</strong> Referência no estado com validação iterativa.</p>
+                </div>
+            </div>
+
+            <div class="card half orange" id="portfolio">
+                <h2>Nossa Arte Digital</h2>
+                <p>Deixe o usuário impressionado com interatividades.</p>
+                <button class="btn" onclick="firework()">Ver Portfolio no Canva ➔</button>
+            </div>
+
+            <div class="card half pink team" style="text-align: center;">
+                <h2>Equipe Especializada</h2>
+                <div style="display:flex; justify-content:space-around;">
+                    <div><img src="samuel.png"><h3>Samuel Ortiz</h3><p>Diretor Chefe</p></div>
+                    <div><img src="elizangela.png"><h3>Elizangela Souza</h3><p>CEO</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
