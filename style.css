@@ -1,107 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;800&display=swap');
 
-html { scroll-behavior: smooth; }
-
 :root {
-    --azul: #A2D2FF;
-    --roxo: #BDB2FF;
-    --rosa: #FFC6FF;
-    --laranja: #FFD59E;
-    --background: #fdfdfd;
+    --bg: #f8fbff;
+    --card: rgba(255, 255, 255, 0.8);
+    --text: #333;
+    --primary: #A2D2FF;
+    --accent: #FFC6FF;
 }
+
+/* Variáveis para o Modo Escuro */
+body.dark-mode {
+    --bg: #0f172a;
+    --card: rgba(30, 41, 59, 0.7);
+    --text: #f1f5f9;
+    --primary: #38bdf8;
+    --accent: #e879f9;
+}
+
+html { scroll-behavior: smooth; cursor: none; } /* Escondemos o mouse real */
 
 body {
-    margin: 0; padding: 0; background: var(--background);
-    font-family: 'Outfit', sans-serif; overflow-x: hidden;
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: 'Outfit', sans-serif; transition: background 0.5s ease;
 }
 
-/* Fundo com bolhas realistas que se mexem */
-.background-blobs {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1; overflow: hidden;
+/* Cursor Customizado */
+#custom-cursor {
+    width: 20px; height: 20px; background: var(--accent);
+    border-radius: 50%; position: fixed; pointer-events: none;
+    z-index: 10000; mix-blend-mode: difference; transition: transform 0.1s;
 }
 
-.blob {
-    position: absolute; border-radius: 50%; filter: blur(60px);
-    opacity: 0.6; transition: transform 0.5s ease-out;
-}
-
-/* NAV ESTILO FLOATING */
+/* Nav Bar */
 nav {
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 700px; background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(15px); border-radius: 50px; padding: 15px 30px;
-    display: flex; justify-content: space-between; z-index: 999;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background: var(--card); backdrop-filter: blur(10px);
+    padding: 10px 30px; border-radius: 50px; z-index: 1000;
+    display: flex; gap: 20px; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-nav a { text-decoration: none; color: #333; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; }
+.theme-toggle { cursor: pointer; font-size: 1.5rem; border: none; background: none; }
 
-/* PÁGINA 1: BOLHA DE SABÃO GIGANTE */
-.hero {
-    height: 100vh; display: flex; flex-direction: column; 
-    justify-content: center; align-items: center; position: relative;
-}
-
-.soap-bubble-container {
-    position: relative; width: 450px; height: 450px;
-    display: flex; justify-content: center; align-items: center;
+/* A Bolha de Sabão Central */
+.bubble-wrap {
+    height: 100vh; display: flex; justify-content: center; align-items: center;
 }
 
 .soap-bubble {
-    width: 100%; height: 100%; border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.2) 20%, transparent 80%);
-    box-shadow: 
-        inset 0 0 40px rgba(255,255,255,0.6),
-        inset 20px -20px 60px rgba(162, 210, 255, 0.4),
-        inset -20px 20px 60px rgba(255, 198, 221, 0.4),
-        0 20px 50px rgba(0,0,0,0.05);
-    border: 1.5px solid rgba(255,255,255,0.5);
-    backdrop-filter: blur(4px);
-    animation: floating 5s infinite ease-in-out;
-    cursor: pointer;
+    width: 400px; height: 400px; border-radius: 50%;
+    position: relative; cursor: pointer;
+    background: radial-gradient(circle at 30% 30%, white, transparent);
+    box-shadow: inset 0 0 50px rgba(255,255,255,0.5), 0 20px 50px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255,255,255,0.3);
+    display: flex; justify-content: center; align-items: center;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.hero img.logo-centro {
-    position: absolute; width: 280px; z-index: 2; pointer-events: none;
+.soap-bubble img { width: 70%; pointer-events: none; }
+
+/* Bento Grid com Animação de Entrada */
+.grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 20px; max-width: 1200px; margin: 0 auto; padding: 50px;
 }
-
-@keyframes floating {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-20px) scale(1.03); }
-}
-
-/* CONTAINER DAS SEÇÕES */
-.container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
-
-/* BENTO GRID (CAIXAS ARREDONDADAS) */
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
 
 .card {
-    background: white; border-radius: 45px; padding: 40px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05);
+    background: var(--card); padding: 30px; border-radius: 40px;
+    backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);
+    transform: translateY(50px); opacity: 0; transition: 0.8s all ease;
 }
 
-.card h2 { color: #222; font-size: 1.8rem; margin-bottom: 20px; }
+.card.reveal { transform: translateY(0); opacity: 1; }
 
-.blue { background: var(--azul); }
-.purple { background: var(--roxo); color: white; }
-.pink { background: var(--rosa); }
-.orange { background: var(--laranja); }
+.card:hover { transform: scale(1.02) rotateX(5deg) rotateY(5deg); }
 
 .span-4 { grid-column: span 4; }
 .span-2 { grid-column: span 2; }
 
-/* EQUIPE FOTOS */
-.team-member { text-align: center; }
-.team-member img { 
-    width: 150px; height: 150px; border-radius: 40px; 
-    object-fit: cover; border: 6px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+/* Foto Equipe */
+.team img { width: 120px; height: 120px; border-radius: 30px; margin-bottom: 10px; }
 
-/* BOTÃO PORTFÓLIO */
-.btn {
-    display: inline-block; padding: 15px 40px; background: white; 
-    color: #333; border-radius: 50px; text-decoration: none; 
-    font-weight: 800; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+/* Botão de Partículas */
+.particle-btn {
+    padding: 15px 40px; border-radius: 50px; border: none;
+    background: linear-gradient(90deg, #A2D2FF, #FFC6FF);
+    font-weight: bold; cursor: pointer; color: #fff;
 }
