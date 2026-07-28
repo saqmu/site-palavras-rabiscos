@@ -2,60 +2,98 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Palavras & Rabiscos | MS Digital Art</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras & Rabiscos | Arte Digital MS</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Fundo de Líquidos que se mexem -->
-    <div class="liquid-bg">
-        <div class="blob" style="background: var(--azul); top: -10%; left: -10%;"></div>
-        <div class="blob" style="background: var(--rosa); bottom: -10%; right: -10%; animation-delay: -5s;"></div>
-        <div class="blob" style="background: var(--laranja); top: 50%; left: 50%; animation-delay: -10s;"></div>
-    </div>
+    <canvas id="liquidCanvas"></canvas>
 
     <nav>
-        <a href="#inicio" style="text-decoration:none; color:#111; font-weight:bold;">Início</a>
-        <a href="#empresa" style="text-decoration:none; color:#111; font-weight:bold;">Empresa</a>
-        <a href="#portfolio" style="text-decoration:none; color:#111; font-weight:bold;">Portfólio</a>
-        <button onclick="document.body.classList.toggle('dark')" style="border:none; background:none; cursor:pointer; font-size:1.2rem;">🌓</button>
+        <div class="nav-content">
+            <img src="logo.png" alt="Logo" class="mini-logo">
+            <div class="links">
+                <a href="#quem-somos">Nós</a>
+                <a href="#portfolio">Portfólio</a>
+                <a href="#equipe">Equipe</a>
+            </div>
+            <button id="themeToggle" onclick="toggleTheme()">🌓</button>
+        </div>
     </nav>
 
-    <header class="hero" id="inicio">
-        <div class="soap-wrapper">
-            <div class="main-bubble" id="targetBubble">
-                <img src="logo.png" alt="Logo">
-            </div>
+    <!-- PÁGINA 1: HERO E QUEM SOMOS -->
+    <header class="hero">
+        <div class="bubble-container">
+            <div id="realisticBubble" class="bubble"></div>
+        </div>
+        <div class="hero-text">
+            <h1>Palavras <span class="amp">&</span> Rabiscos</h1>
+            <p>Transformando a essência do Mato Grosso do Sul em Arte Digital Imersiva.</p>
         </div>
     </header>
 
-    <div class="container">
-        <div class="bento">
-            <div class="card full blue" id="empresa">
-                <h2>Palavras & Rabiscos</h2>
-                <p>Diretamente de MS, cuidamos da essência visual da sua empresa.</p>
-                <div style="display:flex; gap:30px; margin-top:20px;">
-                    <p><strong>Missão:</strong> Potencializar empresas com arte digital.</p>
-                    <p><strong>Visão:</strong> Referência no estado com validação iterativa.</p>
+    <main class="content">
+        <section id="quem-somos" class="section block-large">
+            <div class="glass-card full">
+                <h2>Quem Somos</h2>
+                <p>Nascemos no coração de MS com o propósito de cuidar da narrativa visual de marcas que buscam destaque no cenário digital. Não entregamos apenas artes; arquitetamos experiências visuais que comunicam e convertem.</p>
+                <div class="grid-mission">
+                    <div class="mission-item">
+                        <h3>Visão</h3>
+                        <p>Consolidar-se como a principal referência em autoridade criativa no estado até 2026, validando nossa essência iterativa em cada pixel.</p>
+                    </div>
+                    <div class="mission-item">
+                        <h3>Missão</h3>
+                        <p>Potencializar o valor percebido de pequenas e grandes empresas através de uma arte digital estratégica, transparente e honesta.</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="card half orange" id="portfolio">
-                <h2>Nossa Arte Digital</h2>
-                <p>Deixe o usuário impressionado com interatividades.</p>
-                <button class="btn" onclick="firework()">Ver Portfolio no Canva ➔</button>
-            </div>
-
-            <div class="card half pink team" style="text-align: center;">
-                <h2>Equipe Especializada</h2>
-                <div style="display:flex; justify-content:space-around;">
-                    <div><img src="samuel.png"><h3>Samuel Ortiz</h3><p>Diretor Chefe</p></div>
-                    <div><img src="elizangela.png"><h3>Elizangela Souza</h3><p>CEO</p></div>
+        <!-- PÁGINA 2: DIFERENCIAL E PORTFÓLIO -->
+        <section id="portfolio" class="section block-large">
+            <div class="dual-grid">
+                <div class="glass-card accent-orange">
+                    <h2>Nossos Valores</h2>
+                    <ul>
+                        <li><strong>Transparência:</strong> O cliente no centro de cada etapa.</li>
+                        <li><strong>Validação Iterativa:</strong> Criação evolutiva e constante.</li>
+                        <li><strong>Honestidade:</strong> Ética absoluta na entrega de prazos e valores.</li>
+                        <li><strong>Atendimento Personalizado:</strong> Sua empresa é única, sua arte também.</li>
+                    </div>
+                    <div class="glass-card accent-purple">
+                        <h2>Explorar Portfólio</h2>
+                        <p>Veja nossos projetos recentes criados para transformar empresas através do design estratégico.</p>
+                        <button class="btn-main" onclick="openPortfolio()">Ver no Canva ➔</button>
+                        <p class="contact-hint">Ou mande um oi no <strong>67 9246-6287</strong></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <!-- PÁGINA 3: EQUIPE -->
+        <section id="equipe" class="section block-large">
+            <div class="glass-card team-section">
+                <h2>A Mente por trás da Arte</h2>
+                <div class="team-grid">
+                    <div class="member">
+                        <div class="avatar-glow"><img src="samuel.png"></div>
+                        <h3>Samuel Ortiz</h3>
+                        <span class="role">Diretor Chefe & Analista de Dados</span>
+                        <p>Estrategista visual focado na integração entre dados e arte.</p>
+                    </div>
+                    <div class="member">
+                        <div class="avatar-glow"><img src="elizangela.png"></div>
+                        <h3>Elizangela Souza</h3>
+                        <span class="role">CEO & Fundadora</span>
+                        <p>Liderando a visão executiva e garantindo a essência da empresa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
