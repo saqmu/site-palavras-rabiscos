@@ -1,24 +1,11 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const bubble = document.getElementById('targetBubble');
-
-    // Interação suave com a bolha
-    document.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.pageX) / 20;
-        const y = (window.innerHeight / 2 - e.pageY) / 20;
-        
-        requestAnimationFrame(() => {
-            bubble.style.transform = `translate(${x}px, ${y}px) rotateX(${y}deg) rotateY(${x}deg)`;
-        });
-    });
+// Em vez de 'follow cursor', use uma animação de distorção por hover
+bubble.addEventListener('mousemove', (e) => {
+    const rect = bubble.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Isso cria a ilusão de que você está "deformando" a bolha onde o mouse toca
+    bubble.style.setProperty('--x', `${x}px`);
+    bubble.style.setProperty('--y', `${y}px`);
+    bubble.style.borderRadius = "40% 60% 70% 30% / 40% 50% 60% 50%"; // distorce no toque
 });
-
-function firework() {
-    confetti({
-        particleCount: 150,
-        spread: 70,
-        colors: ['#A2D2FF', '#BDB2FF', '#FFC6FF', '#FFD59E']
-    });
-    setTimeout(() => {
-        window.open("https://palavraserabiscos.my.canva.site/artedigital", "_blank");
-    }, 600);
-}
